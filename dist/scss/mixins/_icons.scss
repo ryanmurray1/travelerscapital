@@ -1,0 +1,14 @@
+// Set icon background, width, height, marign-right, margin-left
+@mixin icon ($color, $icon-name, $width, $height, $margin-r, $margin-l) {
+  display: inline-block;
+  fill: $color;
+  width: $width;
+  height: $height;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url('#{$path-icon}/#{$icon-name}.svg');
+  margin-right: $margin-r;
+  margin-left: $margin-l;
+}

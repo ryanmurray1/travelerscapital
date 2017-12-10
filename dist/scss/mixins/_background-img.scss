@@ -1,0 +1,51 @@
+// Set Background Images for Jumbotrons
+
+@mixin jumbotron-bg($bg-img, $height-y, $pos-x, $pos-y) {
+  height: $height-y;
+  background: $gray-light url('#{$path-bg-img}/#{$bg-img}-3840x2160.jpg') no-repeat;
+  background-position: $pos-x $pos-y;
+  background-size: cover;
+  overflow: hidden;
+
+  h1,
+  p {
+    text-shadow: 0 2px 4px rgba($gray-dark, .25),
+                 0 1px 2px rgba($gray-dark, .5);
+  }
+
+  // Vertically center content
+  .container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Set smaller background image for smaller desktops and tablets
+  @include media-breakpoint-down(lg) {
+    background: $gray-light url('#{$path-bg-img}/#{$bg-img}-1920x1080.jpg') no-repeat;
+    background-position: $pos-x $pos-y;
+    background-size: cover;
+  }
+
+  // Set height to 85% on mobile devices
+  @include media-breakpoint-down(xs) {
+    height: 85vh;
+    background: $gray-light url('#{$path-bg-img}/#{$bg-img}-1920x1080.jpg') no-repeat;
+    background-position: $pos-x $pos-y;
+    background-size: cover;
+  }
+}
+
+
+
+@mixin services-img($img-name) {
+  width: 100%;
+  height: 15rem;
+  background-image: $gray-light url('#{$path-img}/#{$img-name}.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  transition: background-size .4s ease-in-out;
+}

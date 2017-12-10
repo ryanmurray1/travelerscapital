@@ -1,0 +1,433 @@
+// Contents
+//
+// Navbar
+// Navbar brand
+// Navbar nav
+// Navbar text
+// Navbar divider
+// Responsive navbar
+// Navbar position
+// Navbar themes
+
+
+// Navbar
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $navbar-padding-y $navbar-padding-x;
+}
+
+.navbar-bg {
+  background-color: rgba($gray-dark, 0);
+  transition: background-color .5s ease-out;
+  box-shadow: 0 2px 4px rgba($gray-dark,0);
+
+  @include media-breakpoint-down(sm) {
+    background-color: rgba($gray-dark, 0.9);
+    box-shadow: 0 2px 4px rgba($gray-dark, .5);
+  }
+}
+
+.navbar-bg.opaque {
+  background-color: rgba($gray-dark, 0.9);
+  box-shadow: 0 2px 4px rgba($gray-dark, .5);
+}
+
+
+// Navbar brand
+//
+// Used for brand, project, or site names.
+
+.navbar-brand {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: $navbar-padding-x;
+  font-size: $font-size-lg;
+  line-height: inherit;
+  white-space: nowrap;
+  width: 150px;
+  height: 80px;
+  background: url('#{$path-logo}/travelers-rev-tagline.svg') no-repeat;
+  background-size: 100%;
+  transition: width .5s ease-out, height .5s ease-out, margin-top .5s ease-out, margin-bottom .5s ease-out;
+
+  &-scroll {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    width: 95px;
+    height: 51px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 95px;
+    height: 51px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    margin-left: 0;
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+
+// Navbar nav
+//
+// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  @include media-breakpoint-down(sm) {
+    height: 100vh;
+  }
+
+
+  .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+// Navbar text
+//
+//
+
+.navbar-text {
+  display: inline-block;
+  padding-top:    .425rem;
+  padding-bottom: .425rem;
+}
+
+
+// Responsive navbar
+//
+// Custom styles for responsive collapsing and toggling of navbar contents.
+// Powered by the collapse Bootstrap JavaScript plugin.
+
+// Button for toggling the navbar when in its collapsed state
+.navbar-toggler {
+  align-self: flex-start; // Prevent toggler from growing to full width when it's the only visible navbar child
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+  font-size: $navbar-toggler-font-size;
+  line-height: 1;
+  background: transparent; // remove default button style
+  border: $border-width solid transparent; // remove default button style
+  @include border-radius($navbar-toggler-border-radius);
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+// Keep as a separate element so folks can easily override it with another icon
+// or image file as needed.
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+// Hamburger menu animation
+
+#icon-nav {
+  width: 30px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#icon-nav span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#icon-nav span:nth-child(1) {
+  top: 0px;
+}
+
+#icon-nav span:nth-child(2),#icon-nav span:nth-child(3) {
+  top: 6px;
+}
+
+#icon-nav span:nth-child(4) {
+  top: 12px;
+}
+
+#icon-nav.open span:nth-child(1) {
+  top: 6px;
+  width: 0%;
+  left: 50%;
+}
+
+#icon-nav.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#icon-nav.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#icon-nav.open span:nth-child(4) {
+  top: 6px;
+  width: 0%;
+  left: 50%;
+}
+
+// Use `position` on the toggler to prevent it from being auto placed as a flex
+// item and allow easy placement.
+.navbar-toggler-left {
+  position: absolute;
+  left: $navbar-padding-x;
+}
+.navbar-toggler-right {
+  position: absolute;
+  right: $navbar-padding-x;
+}
+
+// Generate series of `.navbar-toggleable-*` responsive classes for configuring
+// where your navbar collapses.
+.navbar-toggleable {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        .navbar-nav {
+          .dropdown-menu {
+            position: static;
+            float: none;
+          }
+        }
+
+        > .container {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+
+      @include media-breakpoint-up($next) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        .navbar-nav {
+          flex-direction: row;
+
+          .nav-link {
+            margin-right: 1rem;
+            margin-left: 1rem;
+          }
+        }
+
+        // For nesting containers, have to redeclare for alignment purposes
+        > .container {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+
+        // scss-lint:disable ImportantRule
+        .navbar-collapse {
+          display: flex !important;
+          width: 100%;
+        }
+        // scss-lint:enable ImportantRule
+
+        .navbar-toggler {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+// Navbar themes
+//
+// Styles for switching between navbars with light or dark background.
+
+// Dark links against a light background
+.navbar-light {
+  .navbar-brand,
+  .navbar-toggler {
+    color: $navbar-light-active-color;
+
+    @include hover-focus {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-light-color;
+
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-light-disabled-color;
+      }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: $navbar-light-toggler-border;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-light-toggler-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-light-color;
+  }
+}
+
+// White links against a dark background
+.navbar-inverse {
+  .navbar-brand,
+  .navbar-toggler {
+    color: $navbar-inverse-active-color;
+    border: none;
+
+    @include hover-focus {
+      color: $navbar-inverse-active-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: $navbar-inverse-color;
+
+      @include hover-focus {
+        color: $navbar-inverse-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-inverse-disabled-color;
+      }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      color: $navbar-inverse-active-color;
+      border-bottom: 2px solid $red;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: $navbar-inverse-toggler-border;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-inverse-toggler-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-inverse-color;
+  }
+}
+
+// Sub-navigation for team page
+
+.sub-nav {
+  padding: $navbar-padding-x;
+  background: $gray-lightest;
+
+  color: $gray;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @include media-breakpoint-down(sm) {
+    padding: $navbar-padding-y;
+  }
+}
+
+.sub-nav-link {
+  color: $gray-light;
+  padding: $navbar-padding-y $navbar-padding-x;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: $brand-primary;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+}
+
+.sub-nav-active {
+  color: $brand-primary;
+}
