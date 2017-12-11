@@ -30,9 +30,9 @@
   // Set height to 85% on mobile devices
   @include media-breakpoint-down(xs) {
     height: 85vh;
-    background: $gray-light url('#{$path-bg-img}/#{$bg-img}-1920x1080.jpg') no-repeat;
-    background-position: $pos-x $pos-y;
-    background-size: cover;
+    // background: $gray-light url('#{$path-bg-img}/#{$bg-img}-1920x1080.jpg') no-repeat;
+    // background-position: $pos-x $pos-y;
+    // background-size: cover;
   }
 }
 

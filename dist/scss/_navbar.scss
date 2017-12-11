@@ -54,8 +54,11 @@
   width: 150px;
   height: 80px;
   background: url('#{$path-logo}/travelers-rev-tagline.svg') no-repeat;
-  background-size: 100%;
-  transition: width .5s ease-out, height .5s ease-out, margin-top .5s ease-out, margin-bottom .5s ease-out;
+  background-size: 100% 100%;
+  -moz-transition: all .5s ease-out;
+  -webkit-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  transition: all .5s ease-out;
 
   &-scroll {
     margin-top: .5rem;

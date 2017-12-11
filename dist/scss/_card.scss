@@ -16,12 +16,12 @@
   height: 100%;
 }
 
-// .card-shadow {
-//   &:hover {
-//     box-shadow: 0 1px 2px rgba($gray-dark,.24),
-//                 0 12px 24px rgba($gray-dark,.12);
-//   }
-// }
+.card-shadow {
+  &:hover {
+    box-shadow: 0 1px 2px rgba($gray-dark,.24),
+                0 12px 24px rgba($gray-dark,.12);
+  }
+}
 
 .card-block {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
@@ -89,6 +89,9 @@
   padding: 1rem;
   background-color: $white;
   align-items: center;
+
+  // Fix IE bug of extra height in card header
+  min-height: 50px;
 
   &:first-child {
     @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
