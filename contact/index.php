@@ -80,7 +80,7 @@ if(intval($responseKeys["success"]) !== 1) {
 
     <title>Contact Us | Travelers Capital</title>
     <meta name="Copyright" content="Travelers Capital Corporation" />
-    <meta name="description" content="" />
+    <meta name="description" content="Travlers Capital is based out of Vancouver, BC and ready to service clients across the country. Contact Us Today." />
     <link rel="canonical" href="https://www.travelerscapital.com/contact" />
 
     <!-- CSS Stylesheet -->
@@ -102,6 +102,7 @@ if(intval($responseKeys["success"]) !== 1) {
       <a class="navbar-brand" href="/"></a>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/services">Home</a>
           <a class="nav-item nav-link" href="/services">Services</a>
           <a class="nav-item nav-link" href="/team">Team</a>
           <a class="nav-item nav-link" href="/transactions">Transactions</a>
