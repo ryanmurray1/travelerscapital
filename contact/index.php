@@ -10,7 +10,7 @@ $company = $_POST['company'];
 $message = $_POST['message'];
 
 $from = 'Travelers Capital Contact Form';
-$to = 'me@ryanmurray.ca';
+$to = 'info@travelerscapital.com';
 $subject = "Message from $name via Travelers Capital Contact Form";
 
 $body = "From: $name\nE-mail: $email\nPhone Number: $number\nCompany: $company\n\nMessage:\n$message";
@@ -80,7 +80,7 @@ if(intval($responseKeys["success"]) !== 1) {
 
     <title>Contact Us | Travelers Capital</title>
     <meta name="Copyright" content="Travelers Capital Corporation" />
-    <meta name="description" content="Travlers Capital is based out of Vancouver, BC and ready to service clients across the country. Contact Us Today." />
+    <meta name="description" content="Based out of Vancouver, BC, Travelers Capital is ready to service clients across the country. Contact us today." />
     <link rel="canonical" href="https://www.travelerscapital.com/contact" />
 
     <!-- CSS Stylesheet -->
