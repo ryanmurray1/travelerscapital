@@ -102,7 +102,7 @@ if(intval($responseKeys["success"]) !== 1) {
       <a class="navbar-brand" href="/"></a>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/services">Home</a>
+          <a class="nav-item nav-link" href="/">Home</a>
           <a class="nav-item nav-link" href="/services">Services</a>
           <a class="nav-item nav-link" href="/team">Team</a>
           <a class="nav-item nav-link" href="/transactions">Transactions</a>
