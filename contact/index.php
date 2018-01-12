@@ -10,7 +10,7 @@ $company = $_POST['company'];
 $message = $_POST['message'];
 
 $from = 'Travelers Capital Contact Form';
-$to = 'me@ryanmurray.ca';
+$to = 'info@travelerscapital.com';
 $subject = "Message from $name via Travelers Capital Contact Form";
 
 $body = "From: $name\nE-mail: $email\nPhone Number: $number\nCompany: $company\n\nMessage:\n$message";
