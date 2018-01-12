@@ -39,12 +39,12 @@ if(!$captcha){
   exit;
 }
 
-$secretKey = "6LcNGhYUAAAAACkj3Pkcp_Hg-4aRelO388BrlBkX";
+$secretKey = "6LclYkAUAAAAAOz31P0DZPAoakjYQU7fr8SlA39o";
 $ip = $_SERVER['REMOTE_ADDR'];
 $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
 $responseKeys = json_decode($response,true);
 if(intval($responseKeys["success"]) !== 1) {
-  $captchaAlert = '<div class="alert alert-danger">You Are a Bot. Sorry there was an error sending your message. Please try again later.</div>';
+  $captchaAlert = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 } else {
   // If there are no errors, send the email
   if (!$errName && !$errEmail && !$errMessage) {
@@ -160,9 +160,7 @@ if(intval($responseKeys["success"]) !== 1) {
                   <span class="icon icon-email"></span>
                 </div>
                 <div class="col-12 col-md-11 text-center text-md-left text-sm-sizeup">
-                  <!-- <a href="mailto:info@travelerscapital.com" target="_top"> -->
-                    info@travelerscapital.com
-                  <!-- </a> -->
+                  info@travelerscapital.com
                 </div>
               </div>
             </div>
@@ -190,7 +188,7 @@ if(intval($responseKeys["success"]) !== 1) {
 
         <div class="col-md-7 col-lg-6">
           <p class="text-center text-md-left">Please contact us to see how Travelers Capital can put its solutions to work for your business.</p>
-          <form role="form" method="post" action="index.php" id="contact-form">
+          <form role="form" method="post" action="" id="contact-form">
             <div class="form-group">
               <label for="InputName">Name</label>
               <input type="text" class="form-control" id="InputName" name="name" aria-describedby="EnterName" value="<?php echo htmlspecialchars($_POST['name']); ?>" required>
@@ -215,7 +213,7 @@ if(intval($responseKeys["success"]) !== 1) {
               <?php echo "<p class='text-danger'>$errMessage</p>";?>
             </div>
             <div class="form-group">
-              <div class="g-recaptcha" data-sitekey="6LcNGhYUAAAAAOlZ3gHgI1w1MlFhe1_4bSY3V16s"></div>
+              <div class="g-recaptcha" data-sitekey="6LclYkAUAAAAALpdS88KfjO5QTONkC8TyzgtxWxO"></div>
             </div>
             <div class="row">
               <div class="col">
