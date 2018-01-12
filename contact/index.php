@@ -160,9 +160,7 @@ if(intval($responseKeys["success"]) !== 1) {
                   <span class="icon icon-email"></span>
                 </div>
                 <div class="col-12 col-md-11 text-center text-md-left text-sm-sizeup">
-                  <!-- <a href="mailto:info@travelerscapital.com" target="_top"> -->
-                    info@travelerscapital.com
-                  <!-- </a> -->
+                  info@travelerscapital.com
                 </div>
               </div>
             </div>
