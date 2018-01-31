@@ -1,65 +1,3 @@
-<?php
-
-require_once "recaptchalib.php";
-
-if (isset($_POST["submit"])) {
-$name = $_POST['name'];
-$email = $_POST['email'];
-$number = $_POST['number'];
-$company = $_POST['company'];
-$message = $_POST['message'];
-
-$from = 'Travelers Capital Contact Form';
-$to = 'info@travelerscapital.com';
-$subject = "Message from $name via Travelers Capital Contact Form";
-
-$body = "From: $name\nE-mail: $email\nPhone Number: $number\nCompany: $company\n\nMessage:\n$message";
-
-// Check if name has been entered
-if (!$_POST['name']) {
-	$errName = 'Please enter your name';
-}
-
-// Check if email has been entered and is valid
-if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-	$errEmail = 'Please enter a valid email address';
-}
-
-//Check if message has been entered
-if (!$_POST['message']) {
-	$errMessage = 'Please enter your message';
-}
-
-//Check if reCAPTCHA had been checked
-if(isset($_POST['g-recaptcha-response'])){
-  $captcha=$_POST['g-recaptcha-response'];
-}
-if(!$captcha){
-  $captchaAlert = '<div class="alert alert-danger">Please check the captcha form.</div>';
-  exit;
-}
-
-$secretKey = "6LclYkAUAAAAAOz31P0DZPAoakjYQU7fr8SlA39o";
-$ip = $_SERVER['REMOTE_ADDR'];
-$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
-$responseKeys = json_decode($response,true);
-if(intval($responseKeys["success"]) !== 1) {
-  $captchaAlert = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-} else {
-  // If there are no errors, send the email
-  if (!$errName && !$errEmail && !$errMessage) {
-  	if (mail ($to, $subject, $body, $from)) {
-  		$result = '<div class="alert alert-success"><strong>Thank You!</strong> We will be in touch</div>';
-  	} else {
-  		$result = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-  	}
-  }
-}
-
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -86,8 +24,6 @@ if(intval($responseKeys["success"]) !== 1) {
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/dist/css/style.min.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
 
@@ -188,29 +124,34 @@ if(intval($responseKeys["success"]) !== 1) {
 
         <div class="col-md-7 col-lg-6">
           <p class="text-center text-md-left">Please contact us to see how Travelers Capital can put its solutions to work for your business.</p>
-          <form role="form" method="post" action="" id="contact-form">
+          <form id="contact-form" method="post" action="contact.php" role="form">
+
+            <div class="messages"></div>
+
             <div class="form-group">
-              <label for="InputName">Name</label>
-              <input type="text" class="form-control" id="InputName" name="name" aria-describedby="EnterName" value="<?php echo htmlspecialchars($_POST['name']); ?>" required>
-              <?php echo "<p class='text-danger'>$errName</p>";?>
+              <label for="form_name">Name</label>
+              <input id="form_name" type="text" name="name" class="form-control" placeholder="" required="required" data-error="Name is required.">
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-              <label for="InputEmail">E-mail Address</label>
-              <input type="text" class="form-control" id="InputEmail" name="email" aria-describedby="EnterEmail" value="<?php echo htmlspecialchars($_POST['email']); ?>" required>
-              <?php echo "<p class='text-danger'>$errEmail</p>";?>
+              <label for="form_email">Email</label>
+              <input id="form_email" type="email" name="email" class="form-control" placeholder="" required="required" data-error="Valid email is required.">
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-              <label for="InputNumber">Phone Number</label>
-              <input type="text" class="form-control" id="InputNumber" name="number" aria-describedby="EnterNumber" value="<?php echo htmlspecialchars($_POST['number']); ?>">
+              <label for="form_phone">Phone</label>
+              <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="">
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-              <label for="InputCompany">Your Company</label>
-              <input type="text" class="form-control" id="InputCompany" name="company" aria-describedby="EnterCompany" value="<?php echo htmlspecialchars($_POST['company']); ?>">
+              <label for="form_company">Your Company</label>
+              <input id="form_company" type="text" name="company" class="form-control" placeholder="" data-error="Please leave us your company name."></input>
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-              <label for="InputMessage">Message</label>
-              <textarea class="form-control" id="InputMessage" name="message" rows="4" required><?php echo htmlspecialchars($_POST['message']); ?></textarea>
-              <?php echo "<p class='text-danger'>$errMessage</p>";?>
+              <label for="form_message">Message</label>
+              <textarea id="form_message" name="message" class="form-control" placeholder="" rows="4" required="required" data-error="Please leave us a message."></textarea>
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
               <div class="g-recaptcha" data-sitekey="6LclYkAUAAAAALpdS88KfjO5QTONkC8TyzgtxWxO"></div>
@@ -225,10 +166,6 @@ if(intval($responseKeys["success"]) !== 1) {
                       </g>
                     </svg>
                   </button>
-                </div>
-                <div class="form-group">
-                  <?php echo $result; ?>
-                  <?php echo $captchaAlert; ?>
                 </div>
               </div>
             </div>
@@ -296,9 +233,12 @@ if(intval($responseKeys["success"]) !== 1) {
     </footer>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/dist/js/custom.js"></script>
+    <script src="/dist/js/validator.js"></script>
+    <script src="/dist/js/contact.js"></script>
   </body>
 </html>
