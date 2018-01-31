@@ -3,8 +3,8 @@
 require('recaptcha-master/src/autoload.php');
 
 // configure
-$from = 'Demo contact form <me@ryanmurray.ca>';
-$sendTo = 'Demo contact form <me@ryanmurray.ca>';
+$from = 'Demo contact form <info@travelerscapital.com>';
+$sendTo = 'Demo contact form <info@travelerscapital.com>';
 $subject = 'New message from Travelers Capital contact form';
 $fields = array('name' => 'Name', 'company' => 'Company', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); // array variable name => Text to appear in the email
 $okMessage = 'Contact form successfully submitted. Thank you, we will get back to you soon!';
