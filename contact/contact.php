@@ -65,8 +65,7 @@ try {
     $params = array(
       'api_user'  => $user,
       'api_key'   => $pass,
-      'to[0]'     => 'info@travelerscapital.com',
-      'to[1]'     => 'me@ryanmurray.ca',
+      'to'        => 'info@travelerscapital.com'
       'subject'   => 'Travelers Capital Contact Form',
       'html'      => $emailHTML,
       'text'      => $emailText,
@@ -92,8 +91,7 @@ try {
 
     curl_close($session);
 
-    // print everything out
-    // print_r($response);
+    // Send response back to html
     $responseArray = array('type' => 'success', 'message' => $okMessage);
   }
 }
