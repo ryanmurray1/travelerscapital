@@ -5,8 +5,8 @@ require('recaptcha-master/src/autoload.php');
 
 // SendGrid account details
 $url = 'https://api.sendgrid.com/';
-$user = 'azure_6cd3595481d441773874cb0aadd2ae8a@azure.com'; // SendGrid username
-$pass = '1tccontactform!';  // SendGrid password
+$user = 'azure_6cd3595481d441773874cb0aadd2ae8a@azure.com'; // Enter your SendGrid username
+$pass = '1tccontactform!';  // Enter your SendGrid password
 
 // Values from contact form
 $name = $_POST['name'];
