@@ -65,7 +65,7 @@ try {
     $params = array(
       'api_user'  => $user,
       'api_key'   => $pass,
-      'to'        => 'info@travelerscapital.com'
+      'to'        => 'info@travelerscapital.com',
       'subject'   => 'Travelers Capital Contact Form',
       'html'      => $emailHTML,
       'text'      => $emailText,
