@@ -151,6 +151,18 @@ ul.dash li {
   @include icon($brand-primary, 'send', 1.5rem, 1.5rem, 0, 0);
 }
 
+.icon-address-contact {
+  @include icon($brand-primary, 'address', 5rem, 5rem, 0, 0);
+}
+
+.icon-email-contact {
+  @include icon($brand-primary, 'email', 5rem, 5rem, 0, 0);
+}
+
+.icon-phone-contact {
+  @include icon($brand-primary, 'phone', 5rem, 5rem, 0, 0);
+}
+
 
 
 //
