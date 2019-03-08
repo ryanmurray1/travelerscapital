@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.14.3//EN
+N:Mellquist;Jordan;;;
+FN:Jordan Mellquist
+ORG:Travelers Capital Corporation;
+EMAIL;type=INTERNET;type=pref:jmellquist@travelerscapital.com
+TEL;type=WORK;type=VOICE;type=pref:(604) 900-3212
+ADR;type=WORK;type=pref:;;4180 Lougheed Highway\nSuite 400;Burnaby;BC;V5C 6A7;Canada
+UID:7be6ff4e-725c-4aca-a1f1-ac09fa0a2ebd
+X-ABUID:252D1003-38B9-4D48-9A53-1D59740A0950:ABPerson
+LABEL;WORK;ENCODING=QUOTED-PRINTABLE:4180 Lougheed Highway=0D=0ASuite 400=0D=0ABurnaby, BC V5C 6A7=0D=0ACanada
+END:VCARD
