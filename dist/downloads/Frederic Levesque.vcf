@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.14.6//EN
+N:Levesque;Frederic;;;
+FN:Frederic Levesque
+ORG:Travelers Capital Corporation;
+EMAIL;type=INTERNET;type=WORK;type=pref:flevesque@travelerscapital.com
+TEL;type=WORK;type=VOICE;type=pref:5148309943
+ADR;type=WORK;type=pref:;;4180 Lougheed Highway\nSuite 400;Burnaby;BC;V5C6A7;Canada
+UID:dce49a6a-b343-47c4-ab07-5a8bb713f851
+X-ABUID:6F5E1D75-D36F-4215-A8C9-2A0273BB9C66:ABPerson
+END:VCARD
